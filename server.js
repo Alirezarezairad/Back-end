@@ -7,9 +7,18 @@ const KEY =process.env.SECRET_EXAMPLE_KEY;
 const MONGODB_URL =process.env.MONGODB_URL;
 const DB_NAME =process.env.DATABASE_NAME;
 //mit mongodb verbinden
-const client =new MongoClient(MONGODB_URL);
 
+
+const ConnectToDB = async () => {
+  await client.connect();
+}
+ 
+
+const client =new MongoClient(MONGODB_URL);
+await ConnectToDB();
 const db = client.db(DB_NAME);
+
+
 
 app.get("/", async (req, res) => {
   try{
