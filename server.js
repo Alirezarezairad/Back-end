@@ -13,12 +13,10 @@ const ConnectToDB = async () => {
   await client.connect();
 }
  
-
 const client =new MongoClient(MONGODB_URL);
+
 await ConnectToDB();
 const db = client.db(DB_NAME);
-
-
 
 app.get("/", async (req, res) => {
   try{
